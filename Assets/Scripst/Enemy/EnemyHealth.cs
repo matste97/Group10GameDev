@@ -5,8 +5,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public int maxHealth = 3;
     private int currentHealth;
     public float bounceForce = 10.0f;
-    
-
+    public float damageCooldown = 0.2f; // Adjust the cooldown time as needed
+    private float lastDamageTime = 0.0f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,16 +14,23 @@ public class EnemyHealth : MonoBehaviour
         // Check for collision with the player.
         if (other.gameObject.CompareTag("Player"))
         {
-            TakeDamage(1);
-            
-            // Get the player's Rigidbody2D (assuming the player has one)
-            Rigidbody2D playerRigidbody = other.GetComponent<Rigidbody2D>();
-            
-            if (playerRigidbody != null)
+            if (Time.time - lastDamageTime >= damageCooldown)
             {
-                // Calculate the direction from the player to the enemy and apply a force in the opposite direction
-                Vector2 bounceDirection = Vector2.up;
-                playerRigidbody.AddForce(bounceDirection * bounceForce, ForceMode2D.Impulse);
+                TakeDamage(1);
+                lastDamageTime = Time.time;
+
+                // Get the player's Rigidbody2D (assuming the player has one)
+                Rigidbody2D playerRigidbody = other.GetComponent<Rigidbody2D>();
+
+                if (playerRigidbody != null)
+                {
+// Calculate the direction from the player to the enemy
+Vector2 bounceDirection = (transform.position - other.transform.position).normalized;
+bounceDirection.y = Mathf.Abs(bounceDirection.y); // Make sure the bounce is always upwards
+
+// Set the player's velocity to achieve a consistent upward bounce
+playerRigidbody.velocity = bounceDirection * bounceForce;
+                }
             }
         }
     }
