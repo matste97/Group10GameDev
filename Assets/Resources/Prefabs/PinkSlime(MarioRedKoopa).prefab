@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4021728666778137802}
   - component: {fileID: 3422491686730908890}
   m_Layer: 12
-  m_Name: PinkSlime
+  m_Name: PinkSlime(MarioRedKoopa)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

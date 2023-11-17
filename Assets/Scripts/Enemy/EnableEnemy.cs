@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnableEnemy : MonoBehaviour
 {
     private GameObject parentObject;
-    private bool scriptsEnabled = false;
 
     void Start()
     {

@@ -24,12 +24,13 @@ public class EnemyHealth : MonoBehaviour
 
                 if (playerRigidbody != null)
                 {
-// Calculate the direction from the player to the enemy
-Vector2 bounceDirection = (transform.position - other.transform.position).normalized;
-bounceDirection.y = Mathf.Abs(bounceDirection.y); // Make sure the bounce is always upwards
+                    Vector2 bounceDirection = (other.transform.position - transform.position).normalized;
 
-// Set the player's velocity to achieve a consistent upward bounce
-playerRigidbody.velocity = bounceDirection * bounceForce;
+                    // Ensure the minimum upward bounce and no horizontal movement
+                    bounceDirection.y = Mathf.Max(bounceDirection.y, 0.5f);
+                    bounceDirection.x = 0f;
+                    // Set the player's velocity to achieve a consistent upward bounce
+                    playerRigidbody.velocity = new Vector2(bounceDirection.x, bounceDirection.y) * bounceForce;
                 }
             }
         }

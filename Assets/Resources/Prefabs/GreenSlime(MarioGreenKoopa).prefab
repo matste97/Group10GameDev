@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 3086483133696777211}
   - component: {fileID: 2296623242824481354}
   m_Layer: 12
-  m_Name: GreenSlime
+  m_Name: GreenSlime(MarioGreenKoopa)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
