@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private bool useFloorCheck = true;
     [SerializeField] private bool debugRaycasts = true;
-    private bool isMovingRight = true;
+    public bool isMovingRight = true;
 
 
      public float wallDetectionDistance = 0.5f;
