@@ -13,11 +13,25 @@ public class EnemyMeleeAttack : MonoBehaviour
     private Animator animator;
     private bool canAttack = true;
     private EnemyFollow enemyFollow;
+    private Collider2D axeCollider;
 
+    private bool isMoving = true;
     private void Start()
     {
         animator = GetComponent<Animator>();
         enemyFollow = GetComponent<EnemyFollow>();
+        axeCollider = transform.Find("AxeCollider").GetComponent<Collider2D>();
+    }
+
+    public void EnableAxeCollider()
+    {
+        axeCollider.enabled = true;
+    }
+
+    // Animation Event function called from the animation timeline when the axe swing is finished
+    public void DisableAxeCollider()
+    {
+        axeCollider.enabled = false;
     }
 
     
@@ -26,6 +40,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         canAttack = false;
         enemyFollow.enabled = false;
+        animator.SetBool("IsMoving", isMoving = false);
         animator.SetTrigger("Attack"); // Trigger the attack animation
 
         // Deal damage to the player should go here
@@ -53,6 +68,7 @@ private void Update()
         }
         if (Vector3.Distance(player.transform.position, transform.position) > attackRange){
             enemyFollow.enabled = true;
+            animator.SetBool("IsMoving", isMoving = true);
         }
         
         else

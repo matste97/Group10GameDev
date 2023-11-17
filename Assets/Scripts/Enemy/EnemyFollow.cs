@@ -10,6 +10,7 @@ public class EnemyFollow : MonoBehaviour
 
     public float speed;
     
+    private bool isMoving;
 
 
     // Start is called before the first frame update
