@@ -9,6 +9,7 @@ public class EnemyFollow : MonoBehaviour
     public bool flip;
 
     public float speed;
+    
 
 
     // Start is called before the first frame update
