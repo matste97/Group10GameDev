@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
+    public Animator animator;
     private bool OnGround;
     private float Friction;
 
@@ -25,6 +26,7 @@ public class Ground : MonoBehaviour
     {
         OnGround = false;
         Friction = 0;
+        animator.SetBool("OnGround", false);
     }
 
     private void EvaluateCollision(Collision2D collision)

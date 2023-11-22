@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3678231079466685492}
   - component: {fileID: 6534619508924256406}
   - component: {fileID: 3633173208932550165}
+  - component: {fileID: 6022534154674284836}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -36,7 +37,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 1.6, z: 1}
+  m_LocalScale: {x: 0.836485, y: 1.0174192, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,8 +83,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.004538984, g: 0.008717049, b: 0.05660379, a: 1}
+  m_Sprite: {fileID: -406704759, guid: df5e621fe1c2a4b068d4b74f61d1cf3e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,7 +103,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5063948860764785809}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bb32f859a9828454cbccf0e1d4bab31b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -125,18 +126,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.01}
+  m_Offset: {x: 0, y: -0.086519584}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.4545455, y: 1.4545455}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.98}
+  m_Size: {x: 1, y: 1.1730386}
   m_EdgeRadius: 0
 --- !u!50 &4416979039812107306
 Rigidbody2D:
@@ -154,7 +155,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 716d7220769ea4b72b0bfea6bd4662e0, type: 2}
+  m_Material: {fileID: 6200000, guid: bb32f859a9828454cbccf0e1d4bab31b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a442dc6dc0aa94cb981dec298fdf0cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6022534154674284836}
   input: {fileID: 11400000, guid: 8b1f46b12bc254e308776e5d4f281dde, type: 2}
   maxSpeed: 10
   maxAcceleration: 35
@@ -297,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81c31d18aac420cb2d82eb5a962722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!68 &2729892359456837891
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -350,6 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1906e1b3264184e95bd6996aa1a4e52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6022534154674284836}
   input: {fileID: 11400000, guid: 8b1f46b12bc254e308776e5d4f281dde, type: 2}
   jumpHeight: 10
   maxAirJumps: 1
@@ -362,7 +366,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5063948860764785809}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbeb2a2c0cc5a429c9a58beafbf3a0ea, type: 3}
   m_Name: 
@@ -386,3 +390,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   _healthController: {fileID: 6534619508924256406}
+--- !u!95 &6022534154674284836
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5063948860764785809}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04a0d9ec689a84cb4b76ef9d653272c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

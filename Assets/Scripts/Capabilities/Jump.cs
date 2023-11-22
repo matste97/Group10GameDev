@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] private InputController input = null;
     [SerializeField, Range(0f, 10f)] private float jumpHeight = 3f;
     [SerializeField, Range(0, 5)] private int maxAirJumps = 0;
@@ -43,21 +44,25 @@ public class Jump : MonoBehaviour
         if (onGround)
         {
             jumpPhase = 0;
+            animator.SetBool("OnGround", false);
         }
 
         if (desiredJump)
         {
             desiredJump = false;
             JumpAction();
+            animator.SetBool("OnGround", true);
         }
 
         if (body.velocity.y > 0)
         {
             body.gravityScale = upwardMovementMultiplier;
+            
         }
         else if (body.velocity.y < 0)
         {
             body.gravityScale = downwardMovementMultiplier;
+
         }
         else if (body.velocity.y == 0)
         {
@@ -70,6 +75,7 @@ public class Jump : MonoBehaviour
     {
         if (onGround || jumpPhase < maxAirJumps)
         {
+
             jumpPhase += 1;
 
             jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * jumpHeight);
