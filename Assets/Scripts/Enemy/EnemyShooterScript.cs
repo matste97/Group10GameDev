@@ -11,12 +11,14 @@ public class EnemyShooterScript : MonoBehaviour
     private Transform playerSensor;
     private bool canShoot = true; // Variable to control shooting frequency
     private Enemy enemyScript; // Reference to the Enemy script
+    private Animator enemyAnimator; 
 
     void Start()
     {
         playerSensor = transform.Find("Player Sensor");
         
         enemyScript = GetComponent<Enemy>();
+        enemyAnimator = GetComponent<Animator>(); 
     }
 
     void Update()
@@ -52,6 +54,7 @@ public class EnemyShooterScript : MonoBehaviour
 
     void FireBullet(Vector2 shootingDirection)
     {
+        enemyAnimator.SetTrigger("Shoot"); 
         GameObject newBullet = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Bullet bulletComponent = newBullet.GetComponent<Bullet>();
 
