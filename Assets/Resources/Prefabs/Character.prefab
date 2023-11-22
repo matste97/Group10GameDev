@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81c31d18aac420cb2d82eb5a962722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 6022534154674284836}
 --- !u!68 &2729892359456837891
 EdgeCollider2D:
   m_ObjectHideFlags: 0
