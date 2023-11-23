@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 
 public class HealthController : MonoBehaviour
@@ -11,14 +13,17 @@ public class HealthController : MonoBehaviour
     public int playerHealth;
     public Animator animator;
     [SerializeField] private Image[] hearts;
+    public String currentScene; //TEMP FOR RELOAD LEVEL ON DEATH
 
 
    
 
      public void Start()
      {
+        
          UpdateHealth();
          animator.SetBool("Dead", false);
+         currentScene = SceneManager.GetActiveScene().name; //TEMP FOR RELOAD LEVEL ON DEATH
 
     }
 
@@ -46,14 +51,23 @@ public class HealthController : MonoBehaviour
             animator.SetBool("Dead", true);
             GetComponent<Move>().enabled = false;
             GetComponent<Jump>().enabled = false;
+    
+            StartCoroutine(ReloadSceneWithDelay()); //TEMP FOR RELOAD LEVEL ON DEATH
 
         }
 
         if (0 < playerHealth)
         {
             animator.SetBool("Dead", false);
+            
         }
         
+    }
+
+    private IEnumerator ReloadSceneWithDelay() //TEMP FOR RELOAD LEVEL ON DEATH
+    {
+        yield return new WaitForSeconds(2f); 
+        SceneManager.LoadScene(currentScene);
     }
 
 }
