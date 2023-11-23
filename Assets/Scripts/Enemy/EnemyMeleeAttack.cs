@@ -6,7 +6,6 @@ public class EnemyMeleeAttack : MonoBehaviour
 {
     public GameObject player;
     public float attackRange = 2.0f;
-    public int damage = 1;
     public float attackCooldown = 3.0f;
     private float cooldownTimer = 0f; // Time between attacks
     
@@ -43,7 +42,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         animator.SetBool("IsMoving", isMoving = false);
         animator.SetTrigger("Attack"); // Trigger the attack animation
 
-        // Deal damage to the player should go here
+        // Animation activates thedamage collider that damages the player
 
         cooldownTimer = attackCooldown;
         
