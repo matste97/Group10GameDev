@@ -126,7 +126,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.31098795, y: -0.06969845}
+  m_Offset: {x: -0.38549042, y: -0.011186838}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -137,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4746294, y: 0.60325456}
+  m_Size: {x: 1.6712875, y: 0.22198486}
   m_EdgeRadius: 0
 --- !u!1 &4372280162560235122
 GameObject:
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 6638644998504271200}
   m_Layer: 12
   m_Name: Health
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
