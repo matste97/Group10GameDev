@@ -373,6 +373,10 @@ PrefabInstance:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3633173208932550165, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
+      propertyPath: invCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5063948860764785809, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
       propertyPath: m_Name
       value: Character
@@ -1122,6 +1126,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1857300166359730655, guid: 9fb22d4ab7ccc4a4289bb3c6e8f79ec2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 283
+      objectReference: {fileID: 0}
     - target: {fileID: 3136684084740264648, guid: 9fb22d4ab7ccc4a4289bb3c6e8f79ec2, type: 3}
       propertyPath: m_Name
       value: HealthCanvas
