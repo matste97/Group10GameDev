@@ -326,7 +326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbeb2a2c0cc5a429c9a58beafbf3a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
   playerHealth: 3
+  animator: {fileID: 6022534154674284836}
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -345,6 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   _healthController: {fileID: 6534619508924256406}
+  animator: {fileID: 6022534154674284836}
+  invCooldown: 1
 --- !u!95 &6022534154674284836
 Animator:
   serializedVersion: 5
