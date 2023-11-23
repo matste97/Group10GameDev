@@ -8,9 +8,14 @@ public class DamageController : MonoBehaviour
 
     [SerializeField] private HealthController _healthController;
 
+    private bool canTakeDamage = true;
+    public float invCooldown = 1.0f;
+    private float cooldownTimer = 0f; // Time between damage
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && canTakeDamage)
         {
             Damage();
         }
@@ -19,9 +24,25 @@ public class DamageController : MonoBehaviour
     void Damage()
     {
         _healthController.playerHealth = _healthController.playerHealth - damage;
+        cooldownTimer = invCooldown;
+        canTakeDamage = false;
+        print(damage);
         _healthController.UpdateHealth();
-
     }
 
+    private void Update()
+    {
+        if (!canTakeDamage)
+        {
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer <= 0)
+            {
+                canTakeDamage = true;
+            }
+        }
 
+    }
 }
+
+
+
