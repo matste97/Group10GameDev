@@ -40,8 +40,8 @@ public class DamageController : MonoBehaviour
                 canTakeDamage = true;
             }
         }
-
     }
+
 }
 
 
