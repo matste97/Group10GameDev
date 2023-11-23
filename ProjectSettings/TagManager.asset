@@ -7,7 +7,6 @@ TagManager:
   - Floor
   - Wall
   - Enemy
-  - DamageArea
   - Ignore
   - PowerUp
   - LevelGoal
