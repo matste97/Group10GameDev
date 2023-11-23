@@ -180,11 +180,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f746503d9894f48818a6216d0343e9, type: 3}
---- !u!95 &322496483 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6022534154674284836, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
-  m_PrefabInstance: {fileID: 546413917}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &322496493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9170505913016883113, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
@@ -203,10 +198,6 @@ PrefabInstance:
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 6534619508924256406, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 322496483}
-    - target: {fileID: 6534619508924256406, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
       objectReference: {fileID: 1091749658}
@@ -224,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170505913016883113, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.57
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 9170505913016883113, guid: 93605df93069142c2ac014c7cb52c3cc, type: 3}
       propertyPath: m_LocalPosition.z
