@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - DamageArea
   - Ignore
+  - PowerUp
+  - LevelGoal
   layers:
   - Default
   - TransparentFX
