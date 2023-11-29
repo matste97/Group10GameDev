@@ -979,7 +979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789242152006285698, guid: 24478c536294d1b4e917bcc507c829eb, type: 3}
       propertyPath: nextLevelName
-      value: Level 4
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6547341096552044842, guid: 24478c536294d1b4e917bcc507c829eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8210,6 +8210,10 @@ PrefabInstance:
     - target: {fileID: 7281824648318317145, guid: 56f746503d9894f48818a6216d0343e9, type: 3}
       propertyPath: m_Name
       value: GraySlime (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281824648318317145, guid: 56f746503d9894f48818a6216d0343e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
