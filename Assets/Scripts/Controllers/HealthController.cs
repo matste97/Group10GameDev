@@ -16,9 +16,9 @@ public class HealthController : MonoBehaviour
     public String currentScene; //TEMP FOR RELOAD LEVEL ON DEATH
 
 
-   
 
-     public void Start()
+
+    public void Start()
      {
         
          UpdateHealth();
@@ -51,7 +51,8 @@ public class HealthController : MonoBehaviour
             animator.SetBool("Dead", true);
             GetComponent<Move>().enabled = false;
             GetComponent<Jump>().enabled = false;
-    
+
+
             StartCoroutine(ReloadSceneWithDelay()); //TEMP FOR RELOAD LEVEL ON DEATH
 
         }

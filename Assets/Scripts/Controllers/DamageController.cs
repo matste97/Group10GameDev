@@ -8,6 +8,8 @@ public class DamageController : MonoBehaviour
 
     [SerializeField] private HealthController _healthController;
 
+    [SerializeField] private AudioSource landingSoundEffect;
+
     public Animator animator;
     private bool canTakeDamage = true;
     public float invCooldown = 1.0f;
@@ -39,6 +41,7 @@ public class DamageController : MonoBehaviour
         print(damage);
         _healthController.UpdateHealth();
         animator.SetBool("Hurt", true);
+        landingSoundEffect.Play();
     }
 
 

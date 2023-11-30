@@ -20,6 +20,8 @@ public class Jump : MonoBehaviour
 
     private bool desiredJump, onGround;
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -49,6 +51,7 @@ public class Jump : MonoBehaviour
 
         if (desiredJump)
         {
+            jumpSoundEffect.Play();
             desiredJump = false;
             JumpAction();
             animator.SetBool("OnGround", true);
