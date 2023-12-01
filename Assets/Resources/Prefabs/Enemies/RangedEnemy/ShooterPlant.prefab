@@ -261,6 +261,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8716771642396589165, guid: 683da04a99444f447abc4a30902ca32a, type: 3}
   projectileSpeed: 5
   timeBetweenShots: 5
+  shootSound: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
 --- !u!95 &5852563243459769881
 Animator:
   serializedVersion: 5
@@ -406,3 +407,4 @@ MonoBehaviour:
   maxHealth: 1
   bounceForce: 5
   damageCooldown: 0.2
+  deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}

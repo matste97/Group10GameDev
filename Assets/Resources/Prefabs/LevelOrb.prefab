@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45bc3259ecc136a4fa4c6beb1b2337af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
   nextLevelName: SampleScene
   delayBeforeLoad: 1
 --- !u!58 &85267181804790602

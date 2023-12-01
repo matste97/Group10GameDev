@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public float bounceForce = 10.0f;
     public float damageCooldown = 0.2f; // Adjust the cooldown time as needed
     private float lastDamageTime = 0.0f;
+    [SerializeField] private AudioClip deathSound; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -53,6 +54,12 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+
+            // Play death sound
+    if (deathSound != null)
+    {
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
+    }
         // Add death behavior here (e.g., play an animation, destroy the enemy GameObject).
         Destroy(transform.parent.gameObject);
     }

@@ -14,6 +14,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     private EnemyFollow enemyFollow;
     private Collider2D axeCollider;
 
+    [SerializeField] private AudioClip axeSound; 
+
     private bool isMoving = true;
     private void Start()
     {
@@ -24,7 +26,12 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     public void EnableAxeCollider()
     {
+        if (axeSound != null)
+    {
+        AudioSource.PlayClipAtPoint(axeSound, transform.position);
+    }
         axeCollider.enabled = true;
+       
     }
 
     // Animation Event function called from the animation timeline when the axe swing is finished

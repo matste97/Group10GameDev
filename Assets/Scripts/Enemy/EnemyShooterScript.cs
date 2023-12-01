@@ -13,6 +13,8 @@ public class EnemyShooterScript : MonoBehaviour
     private Enemy enemyScript; // Reference to the Enemy script
     private Animator enemyAnimator; 
 
+    [SerializeField] private AudioClip shootSound;
+
     void Start()
     {
         playerSensor = transform.Find("Player Sensor");
@@ -57,6 +59,12 @@ public class EnemyShooterScript : MonoBehaviour
         enemyAnimator.SetTrigger("Shoot"); 
         GameObject newBullet = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Bullet bulletComponent = newBullet.GetComponent<Bullet>();
+
+            if (shootSound != null)
+    {
+        AudioSource.PlayClipAtPoint(shootSound, transform.position);
+
+    }
 
         if (bulletComponent != null)
         {

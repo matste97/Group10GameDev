@@ -187,6 +187,7 @@ MonoBehaviour:
   maxHealth: 1
   bounceForce: 10
   damageCooldown: 1
+  deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
 --- !u!61 &976033227302362382
 BoxCollider2D:
   m_ObjectHideFlags: 0

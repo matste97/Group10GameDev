@@ -173,6 +173,7 @@ MonoBehaviour:
   maxHealth: 1
   bounceForce: 10
   damageCooldown: 0.2
+  deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
 --- !u!1 &5360651266383802763
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +331,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 66171159, guid: dd8505d752bef8244bcbb80e5aafd961, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -465,3 +466,4 @@ MonoBehaviour:
   player: {fileID: 0}
   attackRange: 1
   attackCooldown: 3
+  axeSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
