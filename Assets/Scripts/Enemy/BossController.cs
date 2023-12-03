@@ -13,10 +13,15 @@ public class BossFollow : MonoBehaviour
     private bool isAttacking;
     private float attackTimer;
 
+    private Collider2D weaponCollider;
+
+    [SerializeField] private AudioClip attackSound; 
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        weaponCollider = transform.Find("WeaponCollider").GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -69,10 +74,14 @@ public class BossFollow : MonoBehaviour
 
         SetIsAttacking(true); // Trigger the chosen attack animation
 
+
+        
+
         yield return new WaitForSeconds(0.4f); // Adjust the duration of the attack animation
 
         SetIsAttacking(false); // Stop the attack animation
         isAttacking = false;
+        weaponCollider.enabled = false;
 
         // Set a cooldown for the next attack
         yield return new WaitForSeconds(attackCooldown);
@@ -89,6 +98,7 @@ public class BossFollow : MonoBehaviour
         if (attackNumber == 1)
         {
             animator.SetBool("Attack2", false);
+
         }
         else if (attackNumber == 2)
         {
@@ -120,4 +130,17 @@ public class BossFollow : MonoBehaviour
         yield return new WaitForSeconds(0.5f); 
         animator.SetBool("isTakingHit", false);
     }
+
+    void EnableWeaponCollider() {
+        if (attackSound != null)
+        {
+            AudioSource.PlayClipAtPoint(attackSound, transform.position);
+        }
+        weaponCollider.enabled = true;
+    }
+        void disableWeaponCollider() {
+        weaponCollider.enabled = false;
+    }
 }
+
+
