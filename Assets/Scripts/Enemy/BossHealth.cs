@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System;
 
 public class BossHealth : MonoBehaviour
 {
@@ -16,19 +13,23 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private Image[] heartsb;
     private Animator animator;
     private bool isDead = false;
-  
+    private AudioSource backgroundMusicAudioSource; // Reference to the main camera's audio source
 
+    // Declare a delegate and event for boss death
+    public delegate void BossDeathAction();
+    public event BossDeathAction OnBossDeath;
 
     private void Start()
     {
         currentHealth = maxHealth;
         animator = GetComponentInParent<Animator>();
+        // Find the main camera's AudioSource component
+        backgroundMusicAudioSource = Camera.main.GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         UpdateHealth();
-
 
         // Stop the boss movement if it's dead
         if (isDead)
@@ -42,7 +43,6 @@ public class BossHealth : MonoBehaviour
         return isDead;
     }
 
-    
     private void UpdateHealth()
     {
         for (int i = 0; i < heartsb.Length; i++)
@@ -54,15 +54,12 @@ public class BossHealth : MonoBehaviour
             else
             {
                 heartsb[i].color = Color.black;
-
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision with: " + other.gameObject.name);
-
         if (other.gameObject.CompareTag("Player"))
         {
             if (!isDead && Time.time - lastDamageTime >= damageCooldown)
@@ -100,17 +97,34 @@ public class BossHealth : MonoBehaviour
 
     private void Die()
     {
-        isDead = true;// Set the flag to indicate the boss is dead
+        isDead = true; // Set the flag to indicate the boss is dead
 
         // Trigger the "isDead" animation in the parent (boss) Animator
         animator.SetTrigger("isDead");
 
         // Disable components that control boss behavior (e.g., movement script)
         BossFollow bossFollower = GetComponentInParent<BossFollow>();
-    if (bossFollower != null)
-    {
-        bossFollower.enabled = false;
-    }
+        if (bossFollower != null)
+        {
+            bossFollower.enabled = false;
+        }
+
+        // Stop the background music
+        if (backgroundMusicAudioSource != null)
+        {
+            backgroundMusicAudioSource.Stop();
+        }
+
+        // Play the death sound
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        }
+
+        // Trigger the boss death event
+        OnBossDeath?.Invoke();
+                Debug.Log("onBossDeath invoked");
+
     }
 
     // Helper function to set the "isMoving" parameter in the Animator
