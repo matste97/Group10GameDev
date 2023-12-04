@@ -34,6 +34,11 @@ public class BossHealth : MonoBehaviour
         }
     }
 
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
     
     private void UpdateHealth()
     {
@@ -96,11 +101,6 @@ public class BossHealth : MonoBehaviour
 
         // Trigger the "isDead" animation in the parent (boss) Animator
         animator.SetTrigger("isDead");
-
-        if (deathSound != null)
-        {
-            AudioSource.PlayClipAtPoint(deathSound, transform.position);
-        }
 
         // Disable components that control boss behavior (e.g., movement script)
         BossFollow bossFollower = GetComponentInParent<BossFollow>();
