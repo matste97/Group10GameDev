@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 
 public class BossHealth : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private Image[] heartsb;
     private Animator animator;
     private bool isDead = false;
+
+    public GameObject victoryScreen; 
     private AudioSource backgroundMusicAudioSource; // Reference to the main camera's audio source
 
     // Declare a delegate and event for boss death
@@ -21,6 +24,7 @@ public class BossHealth : MonoBehaviour
 
     private void Start()
     {
+        
         currentHealth = maxHealth;
         animator = GetComponentInParent<Animator>();
         // Find the main camera's AudioSource component
@@ -121,9 +125,8 @@ public class BossHealth : MonoBehaviour
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
         }
 
-        // Trigger the boss death event
-        OnBossDeath?.Invoke();
-                Debug.Log("onBossDeath invoked");
+         EnableVictoryScreen();
+         Invoke("LoadMainMenu", 10f);
 
     }
 
@@ -131,5 +134,19 @@ public class BossHealth : MonoBehaviour
     void SetIsMoving(bool moving)
     {
         animator.SetBool("isMoving", moving);
+    }
+
+        // Method to enable the VictoryScreen
+    private void EnableVictoryScreen()
+    {
+        if (victoryScreen != null)
+        {
+            victoryScreen.SetActive(true);
+        }
+    }
+
+    private void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu"); 
     }
 }
