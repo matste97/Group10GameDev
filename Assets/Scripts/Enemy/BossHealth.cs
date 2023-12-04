@@ -16,6 +16,8 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private Image[] heartsb;
     private Animator animator;
     private bool isDead = false;
+  
+
 
     private void Start()
     {
@@ -26,6 +28,7 @@ public class BossHealth : MonoBehaviour
     private void Update()
     {
         UpdateHealth();
+
 
         // Stop the boss movement if it's dead
         if (isDead)
@@ -97,7 +100,7 @@ public class BossHealth : MonoBehaviour
 
     private void Die()
     {
-        isDead = true; // Set the flag to indicate the boss is dead
+        isDead = true;// Set the flag to indicate the boss is dead
 
         // Trigger the "isDead" animation in the parent (boss) Animator
         animator.SetTrigger("isDead");
