@@ -1,4 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 public class BossHealth : MonoBehaviour
 {
@@ -8,6 +13,7 @@ public class BossHealth : MonoBehaviour
     public float damageCooldown = 0.2f;
     private float lastDamageTime = 0.0f;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private Image[] heartsb;
     private Animator animator;
     private bool isDead = false;
 
@@ -19,10 +25,29 @@ public class BossHealth : MonoBehaviour
 
     private void Update()
     {
+        UpdateHealth();
+
         // Stop the boss movement if it's dead
         if (isDead)
         {
             SetIsMoving(false);
+        }
+    }
+
+    
+    private void UpdateHealth()
+    {
+        for (int i = 0; i < heartsb.Length; i++)
+        {
+            if (i < currentHealth)
+            {
+                heartsb[i].color = new Color(0.3f, 0.05f, 0.31f);
+            }
+            else
+            {
+                heartsb[i].color = Color.black;
+
+            }
         }
     }
 
